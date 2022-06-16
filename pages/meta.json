@@ -1,7 +1,5 @@
 {
-  "index": "Introduction",
-  "get-started": "Get Started",
-  "features": "Features",
-  "themes": "Themes",
-  "advanced": "Advanced"
+  "index": "Introducción",
+  "basic_concepts": "Conceptos Básicos",
+  "demo": "Nextra Docs"
 }

@@ -1,11 +1,19 @@
 import Bleed from 'nextra-theme-docs/bleed'
+import { Counter } from '../components/Test/counter'
+import { YouTube } from 'mdx-embed'
 
-# Nextra
+# Apuntes de Teoría Musical
 
-**Nextra** is a [Next.js](https://nextjs.org) based static site generator.
+**Prototipo** con los apuntes y recursos de teoría musical.
 
-It supports Markdown and React components ([MDX](/features/mdx)), automatically generated [sidebar and anchor links](/get-started#sidebar-and-anchor-links), file-system based routing, built-in syntax highlighting, image optimization, custom layouts, i18n, and all the features you love about Next.js.
+<YouTube youTubeId="hG7zntUw6Oc" />
+<Counter />
 
-Here's what you will get in 1 minute:
-
-<Bleed>![Nextra Example](../public/demo.png)</Bleed>
+```jsx
+i18n: [
+  { locale: 'en', text: 'English' },
+  { locale: 'zh', text: '中文' },
+  { locale: 'de', text: 'Deutsch' },
+  { locale: 'ar', text: 'العربية', direction: 'rtl' },
+]
+```
