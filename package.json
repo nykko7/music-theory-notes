@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "mdx-embed": "^1.0.0",
+    "midi-sounds-react": "^1.2.54",
     "next": "^12.1.0",
     "nextra": "^1.1.0",
     "nextra-theme-docs": "^1.2.2",
