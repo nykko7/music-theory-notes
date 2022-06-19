@@ -1,6 +1,9 @@
 .key {
   height: calc(var(--width) * 4);
   width: var(--width);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .white {
@@ -24,11 +27,36 @@
 }
 
 .keyText {
-  position: relative;
-  color: black;
   font-weight: bold;
-  font-size: 36px;
-  margin-top: calc(var(--width) * 3);
   text-align: center;
   pointer-events: none;
+  height: calc(var(--width) * 0.9);
+  width: calc(var(--width) * 0.9);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(var(--width) * 0.15);
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.keyText.marked {
+  border: 1px solid #333;
+  border-radius: 50%;
+  background-color: tomato;
+}
+
+.black > .keyText {
+  font-size: 18px;
+  color: white;
+}
+
+.white > .keyText {
+  font-size: 36px;
+  color: black;
 }
