@@ -2,16 +2,31 @@ import React, { useEffect, useState } from 'react'
 import Key from './key'
 import styles from './piano.module.css'
 import { NOTES, VALID_KEYS, KEY_TO_NOTE } from '../../global/constants'
+import { Range } from '@tonaljs/tonal'
 
-const Piano = ({ markedNotesa }) => {
-  console.log(markedNotesa)
+import * as Tone from 'tone'
+
+const Piano = ({ configuration }) => {
   const [pressedNotes, setPressedNotes] = useState([])
-  const [markedNotes, setMarkedNotes] = useState(markedNotesa)
+  const [synth, setSynth] = useState(null)
 
   useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown)
-    window.addEventListener('keyup', handleKeyUp)
+    const newSynth = new Tone.Synth().toDestination()
+    setSynth(newSynth)
+    return () => synth.stop()
   }, [])
+
+  // useEffect(() => {
+  //   window.addEventListener('keydown', handleKeyDown)
+  //   window.addEventListener('keyup', handleKeyUp)
+  // }, [])
+
+  useEffect(() => {
+    if (synth) {
+      if (pressedNotes.length > 0)
+        synth.triggerAttackRelease(pressedNotes[0], '8n')
+    }
+  }, [pressedNotes])
 
   const handleKeyDown = (event) => {
     if (event.repeat) {
@@ -43,12 +58,12 @@ const Piano = ({ markedNotesa }) => {
 
   return (
     <div className={styles.piano}>
-      {NOTES.map((note, index) => (
+      {configuration.notes.map((note, index) => (
         <Key
           key={index}
           note={note}
           pressedNotes={pressedNotes}
-          markedNotes={markedNotes}
+          markedNotes={configuration.markedNotes}
           removeFromPressedNotes={removeFromPressedNotes}
           addToPressedNotes={addToPressedNotes}
         />
@@ -58,7 +73,10 @@ const Piano = ({ markedNotesa }) => {
 }
 
 Piano.defaultProps = {
-  markedNotesa: [],
+  configuration: {
+    markedNotes: [],
+    notes: [...Range.chromatic(['C5', 'C6'], { sharps: true })],
+  },
 }
 
 export default Piano

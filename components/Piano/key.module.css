@@ -8,14 +8,14 @@
 
 .white {
   --width: 70px;
-  background-color: white;
-  border: 2px solid #333;
+  background-color: #f2f0e6;
+  border: 2px solid #11151c;
 }
 
 .black {
   --width: 40px;
   position: relative;
-  background-color: black;
+  background-color: #11151c;
   margin-left: calc(var(--width) / -2);
   margin-right: calc(var(--width) / -2);
   z-index: 2;
@@ -23,15 +23,15 @@
 
 .key.white.pressed,
 .key.black.pressed {
-  background-color: #00d8ff;
+  background-color: #36827f;
 }
 
 .keyText {
   font-weight: bold;
   text-align: center;
   pointer-events: none;
-  height: calc(var(--width) * 0.9);
-  width: calc(var(--width) * 0.9);
+  height: calc(var(--width) * 0.95);
+  width: calc(var(--width) * 0.95);
 
   display: flex;
   justify-content: center;
@@ -46,9 +46,9 @@
 }
 
 .keyText.marked {
-  border: 1px solid #333;
+  border: 1px solid #11151c;
   border-radius: 50%;
-  background-color: tomato;
+  background-color: #36827f;
 }
 
 .black > .keyText {
@@ -58,5 +58,5 @@
 
 .white > .keyText {
   font-size: 36px;
-  color: black;
+  color: #11151c;
 }

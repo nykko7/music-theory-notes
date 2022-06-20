@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
 import { NOTE_TO_KEY, KEY_TO_NOTE } from '../../global/constants'
+import { Note } from '@tonaljs/tonal'
 import styles from './key.module.css'
 
 const isFlat = (note) => note.includes('#')
 
 const isPressed = (note, pressedNotes) => pressedNotes.includes(note)
-const isMarked = (note, markedNotes) => markedNotes.includes(note)
+const isMarked = (note, markedNotes) =>
+  markedNotes.includes(note) || markedNotes.includes(Note.enharmonic(note))
 
 const Key = ({
   note,
